@@ -1,24 +1,25 @@
-specVersion: 0.0.2
+specVersion: 0.0.4
 description: Indexing all Ethereum Block data
 repository: https://github.com/blocklytics/ethereum-blocks
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: ConverterRegistryContract
-    network: rinkeby
+    name: BlockRecord
+    network: pulse
     source:
-      address: "0x0ddff327ddf7fe838e3e63d02001ef23ad1ede8e"
-      abi: ConverterRegistryContract
+      address: "0xa1077a294dde1b09bb078844df40758a5d0f9a27"
+      abi: ERC20Contract
+      startBlock: 18851231
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - ConverterAddition
       abis:
-        - name: ConverterRegistryContract
-          file: ./abis/ConverterRegistryContract.json
+        - name: ERC20Contract
+          file: ./abis/erc20.abi.json
       blockHandlers:
         - handler: handleBlock
       file: ./src/mappings/blocks.ts
