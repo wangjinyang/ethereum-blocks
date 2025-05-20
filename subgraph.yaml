@@ -4,7 +4,7 @@ repository: https://github.com/blocklytics/ethereum-blocks
 schema:
   file: ./schema.graphql
 indexerHints:
-  prune: 500
+  prune: auto
 dataSources:
   - kind: ethereum/contract
     name: BlockRecord
@@ -12,7 +12,7 @@ dataSources:
     source:
       address: "0xa1077a294dde1b09bb078844df40758a5d0f9a27"
       abi: ERC20Contract
-      startBlock: 22000000
+      startBlock: 23500000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
